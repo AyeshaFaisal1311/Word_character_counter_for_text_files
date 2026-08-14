@@ -1,26 +1,33 @@
-text = input("Enter your text:")
+def count_chars(text):
+    char_count=len(text)
+    space_counter = 0
+    for char in text:
+        if char ==' ':
+            space_counter += 1
+    characters_count_without_spaces = len(text) - space_counter
+          
+    return char_count , characters_count_without_spaces
 
-print(f"Characters Count with spaces: {len(text)}")
-#Without spaces
-space_counter = 0
-for char in text:
-    if char ==' ':
-        space_counter += 1
+def count_words(text):
+    words_list=text.split()
+    words=len(words_list)
+    return words
 
-characters = len(text) - space_counter
-print(f"Characters Count without spaces: {characters}")
-
-
-# word count 
-words_list=text.split()
-print(f"words in a text: {len(words_list)}")
-
-#character occurence
-char_count={}
-
-for char in text:
-    if char == " ":
-        continue
+def char_frequency(text):
+    char_count={}
+    for char in text:
+        if char == " ":
+            continue
+        char_count[char]=char_count.get(char,0) + 1
     
-    char_count[char]=char_count.get(char,0) + 1
-print(f" Character count: {char_count}")    
+    return char_count
+
+def main():
+    text=input("Enter your text")
+    total_chars, chars_no_spaces = count_chars(text)
+    print(f'Character (with spaces): {total_chars}')
+    print(f"Characters without spaces: {chars_no_spaces}")
+    print(f"Words Count: {count_words(text)}")
+    print(f"Characters occurrence: {char_frequency(text)}")
+    
+main()    
