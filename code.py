@@ -1,4 +1,4 @@
-text=input("Enter your text:")
+text = input("Enter your text:")
 
 print(f"Characters Count with spaces: {len(text)}")
 #Without spaces
@@ -17,11 +17,10 @@ print(f"words in a text: {len(words_list)}")
 
 #character occurence
 char_count={}
-print(char_count)
+
 for char in text:
     if char == " ":
         continue
-    else:
-        if char in char_count:
-         char_count[char] +=1
-print(char_count)
+    
+    char_count[char]=char_count.get(char,0) + 1
+print(f" Character count: {char_count}")    
