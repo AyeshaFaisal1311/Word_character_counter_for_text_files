@@ -37,7 +37,14 @@ def word_frequency(text):
 
 
 def main():
-    text=input("Enter your text")
+    choice = input ("Enter your choice (1.type text, 2 read from file):")
+    if choice == '1':
+        text=input("Enter your text")
+    else: 
+        file_path=input("Enter file path(if you copy the path please remove quotes):")   
+        with open(file_path,'r') as file:
+            text= file.read()
+
     total_chars, chars_no_spaces = count_chars(text)
     print(f'Character (with spaces): {total_chars}')
     print(f"Characters without spaces: {chars_no_spaces}")
@@ -46,3 +53,4 @@ def main():
     print(f"Frequent words: {word_frequency(text)}")
     
 main()    
+
